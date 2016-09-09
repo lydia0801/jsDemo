@@ -1,0 +1,151 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	padding:0;
+	margin:0 auto;
+	font-family:"微软雅黑";
+}
+.lydia_show_img_div{
+	margin-top:20px;
+	width:660px;
+	height:400px;
+	position:relative;
+	overflow:hidden;
+	box-shadow:0 0 5px 3px rgba(255,0,0 ,.6),0 0 5px 3px rgba(255,182,0, .6),0 0 5px 3px rgba(255,255,0, .6);
+}
+.lydia_show_img_div li{
+	list-style:none;
+	float:left;
+}
+#lydia_show_img{
+	display:block;
+	width:100%;
+	height:320px;
+	overflow:hidden;
+}
+#lydia_show_img li{
+	display:none;
+}
+#lydia_show_img img{
+	width:660px;
+	height:320px;
+}
+#lydia_show_divsmall{
+	display:block;
+	width:100%;
+	height:80px;
+	line-height:80px;
+	background:#000;
+	position:relative;
+}
+#lydia_show_imgsmall{
+	display:block;
+	width:500%;
+}
+#lydia_show_imgsmall_view{
+	width:90%;
+	overflow:hidden;
+}
+#lydia_left{
+	display:inline-block;
+	float:left;
+	width:0px;
+	height:0px;
+	border:20px solid #000;
+	border-right-color:#999;
+	position:absolute;
+	left:-16px;
+	top:20px;
+}
+#lydia_right{
+	display:inline-block;
+	float:left;
+	width:0px;
+	height:0px;
+	border:20px solid #000;
+	border-left-color:#999;
+	position:absolute;
+	right:-16px;
+	top:20px;
+}
+#lydia_left:hover{
+	border-right-color:#CFC;
+}
+
+
+#lydia_right:hover{
+	border-right-color:#CFC;
+}
+#lydia_left:active{
+	border-right-color:#FFF;
+}
+
+
+#lydia_right:active{
+	border-right-color:#FFF;
+}
+#lydia_show_imgsmall li{
+	height:80px;
+	line-height:80px;
+	margin:0px 5px;
+}
+#lydia_show_imgsmall a{
+	display:inline-block;
+	height:80px;
+	line-height:80px;
+}
+#lydia_show_imgsmall img{
+	width:60px;
+	height:60px;
+	margin-top:9px;
+}
+#lydia_show_title{
+	width:100%;
+	height:50px;
+	background:#000;
+	position:absolute;
+	left:0;
+	top:270px;
+	opacity:0.5; /*透明度*/
+}
+
+#lydia_show_title li,#lydia_show_title li a,#lydia_show_title li a p{
+	display:inline-block;
+	width:100%;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	color:#FFF;
+	font-size:28px;
+}
+
+#shitiInfo{
+	border:1px solid #699;
+	border-radius:3px;
+	width:200px;
+	height:30px;
+	line-height:30px;
+	font-size:14px;
+	background:#c1e3d3 url(../image/tishi.png) no-repeat left center;
+	color:#fff;
+	padding-left:30px;
+	position:absolute;
+	top:200px;
+	left:200px;
+	display:none;
+}
+
+
+.lydia_over{
+	border:#F0F  2px solid;
+}
+.lydia_out{
+	border:2px #00FFFF solid;
+}
+
+
+
+
+
+
+

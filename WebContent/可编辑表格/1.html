@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/jquery-1.9.1.js"></script>
+<script>
+//在表格中所在行数为奇数  odd ,   even表示偶数
+ 
+
+$(function(){
+	showInfo();
+	
+	
+	$("div>input").click(function(){
+		var mytr = $("<tr><td>a</td><td>a</td><td><a href='javascript:void(0)'>删除</a></td></tr>");	
+		//console.info($("table tbody"));
+		mytr.appendTo($("table tbody"));//添加一行
+		showInfo();
+	}); 
+	function delInfo(delObj){
+		var result= confirm("您确定要删除");
+		if(result){
+			delObj.remove();//将其移除
+			changeColor();
+		}else{
+			return;	
+		}	 
+	
+	}
+	
+	function changeColor(){
+		$("tbody tr:even").css("background","red");	
+		$("tbody tr:odd").css("background","white");		
+	}
+	
+	
+	function showInfo(){
+		$("tbody tr:even").css("background","red");	
+		//解除绑定
+		$("tbody tr").unbind();
+		//给tBody中的每一个tr绑定鼠标over 和 out事件
+		$("tbody tr").bind({
+			mouseover:function(){
+				$(this).css("background","yellow");
+			},
+			mouseout:function(){
+				if($(this).index()%2==0){
+					$(this).css("background","red");		
+				}else{
+					$(this).css("background","white");		
+				}
+			},
+			click:function(){
+				
+			}
+			
+		});
+		//解除绑定
+		$("tbody td").unbind();
+		//添加绑定
+		$("tbody td").bind({
+			click:function(){
+				var tdObj =$(this);
+				var inputObj =$("<input type='text' size='10'/>");
+				if(tdObj.html()=='<a href="javascript:void(0)">删除</a>'){
+					var delObj =tdObj.parent();
+					delInfo(delObj);//删除表格行
+				}else{
+					var text =$(this).text();
+					inputObj.val(text);
+					tdObj.html("");
+					inputObj.appendTo($(this));
+					inputObj.select(); //选中文本框的值
+					
+					inputObj.blur(function(){
+						var tt=inputObj.val();	
+						tdObj.html("");
+						tdObj.text(tt);
+					});
+				}	
+			}	
+		});
+		
+		
+	}
+	
+	
+
+
+	
+});
+
+
+
+</script>
+</head>
+
+<body>
+
+
+	<div>
+    	<table>
+        	<tr>
+            	<td>商品信息</td>
+            	<td>商品价格</td>
+                <td>操作</td>
+            </tr>
+        	<tr>
+            	<td>泡面</td>
+            	<td>12</td>
+                <td><a href="javascript:void(0)">删除</a></td>
+            </tr>
+            
+        
+        </table>
+      <input type="button" value="增加行"/>
+    </div>
+
+</body>
+</html>

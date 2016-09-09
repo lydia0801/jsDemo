@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script src="js/jquery-1.9.1.js"></script>
+<style>
+*{
+	margin:0 auto;
+	padding:0;
+}
+.maintype_left{
+	margin:0 10px;
+	width:500px;
+	height:300px;
+}
+.scroll_mid{
+	border:1px solid blue;
+	width:500px;
+	height:300px;
+	float:left;
+}
+
+#dd_scroll{
+	width:500px;
+	height:300px;
+}
+
+ul{
+	list-style-type:none;
+}
+.scroll_mid li{
+	width:20px;
+	height:20px;
+	text-align:center;
+	border:1px red solid;
+	float:left;
+}
+.scroll_over{
+	background-color:red;
+}
+.scroll_out{
+	background-color:#FFF;
+}
+</style>
+<script>
+	var index =0;
+	var mytime;
+	 
+	function show(id){ 
+		if(Number(id)){
+			index =id;
+			clearInterval(mytime);
+		}else{
+			index = index%6+1;
+			console.info(index);
+		}
+		$("#dd_scroll").attr("src","image/"+index+".jpg");
+		console.info($(".scroll_mid li"));
+		$(".scroll_mid li").attr("class","scroll_out");
+		$(".scroll_mid li").eq(index-1).attr("class","scroll_over");
+	}
+	
+	function start(){
+		mytime=setInterval("show()",1000);
+	}
+	$(function(){
+		mytime=setInterval("show()",1000);	
+	});	 
+</script>
+
+</head>
+
+<body>
+	<div class="maintype_left">
+    	<div class="scroll_mid">
+        	<img src="image/1.jpg" id="dd_scroll"/>
+        	<ul>
+            	<li onMouseOver="show(1)" onMouseOut="start()">1</li>
+                <li onMouseOver="show(2)" onMouseOut="start()">2</li>
+                <li onMouseOver="show(3)" onMouseOut="start()">3</li>
+                <li onMouseOver="show(4)" onMouseOut="start()">4</li>
+                <li onMouseOver="show(5)" onMouseOut="start()">5</li>
+                <li onMouseOver="show(6)" onMouseOut="start()">6</li>       
+            </ul>
+        </div>
+    
+    
+    </div>
+
+</body>
+</html>
